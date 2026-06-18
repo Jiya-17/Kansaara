@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ── Design Tokens & System Variables ── */
 :root {
   --bg-primary: #0f1922;        /* Deep Premium Midnight Blue */
@@ -12,20 +16,12 @@
   --font-mono: 'SFMono-Regular', Consolas, monospace;
 }
 
-/* ── Base Reset & Normalization ── */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
+/* ── Base Reset ── */
 html, body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* ── Global Layout Structure ── */
@@ -213,13 +209,6 @@ html, body {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 4rem;
-}
-
-@media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
 }
 
 .form-group {
