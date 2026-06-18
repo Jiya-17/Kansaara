@@ -1,0 +1,283 @@
+/* ── Design Tokens & System Variables ── */
+:root {
+  --bg-primary: #0f1922;        /* Deep Premium Midnight Blue */
+  --surface-card: #162432;      /* Lighter Slate for Grid Cards */
+  --surface-muted: #121e2a;     /* Subdued Section Backgrounds */
+  --brand-gold: #d4af37;        /* Metallic Elegance Accents */
+  --accent: #c5a028;            /* Hover/Active Gold states */
+  --text-main: #f5f7fa;         /* Off-white Crisp Text */
+  --text-muted: #94a3b8;        /* Slate Gray for secondary details */
+  --border-subtle: rgba(212, 175, 55, 0.15); /* Light Gold Border Mesh */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'SFMono-Regular', Consolas, monospace;
+}
+
+/* ── Base Reset & Normalization ── */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Global Layout Structure ── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0;
+  min-height: 85vh;
+}
+
+/* ── Typography & Headings ── */
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.h-1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-top: 0.5rem;
+}
+
+.h-2 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.h-3 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.lede {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* ── Navigation Header Bar ── */
+.nav-header {
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 25, 34, 0.85);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem;
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--text-main);
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link--active {
+  color: var(--brand-gold);
+}
+
+/* ── Functional Structural Headers ── */
+.section-head {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 2.5rem;
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  color: var(--brand-gold);
+  font-size: 0.9rem;
+  padding-top: 0.4rem;
+}
+
+/* ── Content Grids & Responsive Cards ── */
+.divisions-grid, .sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.division-card, .sector-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  padding: 2.5rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.division-card:hover, .sector-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-gold);
+}
+
+.division-card--featured {
+  border-left: 3px solid var(--brand-gold);
+}
+
+.division-card-top, .sector-card-head {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.division-tag {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--brand-gold);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+.sector-arrow {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.sector-card:hover .sector-arrow {
+  color: var(--brand-gold);
+}
+
+.sector-meta {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.sector-meta span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--bg-primary);
+  padding: 0.3rem 0.7rem;
+  color: var(--text-muted);
+  border-radius: 2px;
+}
+
+/* ── Contact Section Framework ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.8rem 0;
+  color: var(--text-main);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--brand-gold);
+}
+
+.btn-submit {
+  background: var(--brand-gold);
+  color: var(--bg-primary);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: var(--accent);
+}
+
+/* ── Footer Elements ── */
+.footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 3rem 0;
+  background: var(--surface-muted);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
